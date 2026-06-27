@@ -1,83 +1,64 @@
 ---
 ---
-<section class="hero-section relative w-full h-[800px] overflow-hidden bg-[var(--navy)]">
+<section class="hero-section relative w-full overflow-hidden" style="height: 100vh; min-height: 700px; background: #04111c;">
 
   <!-- Three.js particle canvas -->
-  <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-40"></canvas>
+  <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-30"></canvas>
 
   <!-- Hero background image -->
-  <div
-    id="hero-bg"
-    class="absolute inset-0 bg-center bg-cover"
-    style="background-image: url('/images/hero-bg.jpg');"
-  ></div>
-
-  <!-- Gradient overlay: left dark → right transparent -->
-  <div class="absolute inset-0 z-[2]"
-    style="background: linear-gradient(90deg, rgba(6,16,24,.95) 0%, rgba(6,16,24,.72) 42%, rgba(6,16,24,.15) 74%, rgba(6,16,24,0) 100%);">
+  <div id="hero-bg" class="absolute inset-0 bg-center bg-cover scale-105"
+    style="background-image: url('/images/hero-bg.jpg'); background-position: right center;">
   </div>
 
-  <!-- Red X decoration (brand mark) -->
-  <div class="absolute right-[6%] top-[12%] z-[3] opacity-80" aria-hidden="true">
-    <svg width="320" height="320" viewBox="0 0 320 320" fill="none">
-      <line x1="0" y1="0" x2="320" y2="320" stroke="#C41230" stroke-width="5" stroke-linecap="square"/>
-      <line x1="320" y1="0" x2="0" y2="320" stroke="#C41230" stroke-width="5" stroke-linecap="square"/>
+  <!-- Teal color grade overlay (left half) -->
+  <div class="absolute inset-0 z-[2]"
+    style="background: linear-gradient(105deg, rgba(2,30,45,0.92) 0%, rgba(4,40,55,0.75) 38%, rgba(10,50,60,0.3) 62%, rgba(0,0,0,0) 80%);">
+  </div>
+  <!-- Darken overall -->
+  <div class="absolute inset-0 z-[2]" style="background: rgba(0,0,0,0.28);"></div>
+
+  <!-- Red brush strokes (right side) -->
+  <div class="absolute right-0 top-0 h-full z-[3] pointer-events-none" style="width: 42%;" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 600 800" preserveAspectRatio="xMaxYMid slice" fill="none">
+      <!-- Main large diagonal brush -->
+      <polygon points="420,0 600,0 600,520 340,0" fill="#C41230" opacity="0.92"/>
+      <!-- Second brush stroke -->
+      <polygon points="480,0 600,0 600,200 440,0" fill="#a00f26" opacity="0.7"/>
+      <!-- Lower brush -->
+      <polygon points="380,800 600,400 600,800" fill="#C41230" opacity="0.55"/>
+      <!-- Thin accent lines -->
+      <polygon points="360,0 390,0 220,800 190,800" fill="#C41230" opacity="0.3"/>
+      <polygon points="320,0 345,0 175,800 150,800" fill="#C41230" opacity="0.18"/>
     </svg>
   </div>
 
-  <!-- Vertical label -->
-  <div class="absolute right-8 bottom-32 z-[6] writing-mode-vert text-white/50 text-[11px] tracking-[0.3em] bebas"
-    style="writing-mode: vertical-rl; letter-spacing: 0.3em;">
-    A-HERO 01 / VORTEX OF JOY
-  </div>
-
-  <!-- Hero body content -->
-  <div id="hero-body" class="absolute left-20 bottom-36 z-[6] max-w-[700px]">
-
-    <!-- Tagline row -->
-    <div class="flex items-center gap-4 mb-7 hero-line" style="opacity:0; transform:translateY(20px);">
-      <span class="rule"></span>
-      <span class="lab text-white">SPORTS PR FROM JAPAN, TO THE WORLD</span>
-    </div>
+  <!-- Hero body content (left side) -->
+  <div id="hero-body" class="absolute z-[6]" style="left: 6%; bottom: 22%; max-width: 680px;">
 
     <!-- Main headline -->
-    <h1 class="gothic font-black leading-[1.04] tracking-[-0.02em] text-white mb-5">
-      <span class="block hero-line" style="font-size:72px; opacity:0; transform:translateY(24px);">スポーツと言えば、</span>
-      <span class="block hero-line" style="font-size:72px; opacity:0; transform:translateY(24px);">
-        日本<span style="color:var(--crimson); font-size:84px;">✕</span>をつくる。
+    <h1 class="gothic font-black text-white leading-[1.1] mb-0" style="font-size: clamp(52px, 5.8vw, 76px);">
+      <span class="block hero-line" style="opacity:0; transform:translateY(28px); white-space: nowrap;">
+        "スポーツといえば日本"
+      </span>
+      <span class="block hero-line" style="opacity:0; transform:translateY(28px);">
+        を世界へ届ける
       </span>
     </h1>
+  </div>
 
-    <!-- Sub copy -->
-    <p class="gothic text-white text-[17px] leading-[1.7] mb-3 hero-line" style="opacity:0; transform:translateY(20px);">
-      日本のスポーツの熱を、戦略で世界へ届けるPRカンパニー。
+  <!-- Bottom tagline -->
+  <div class="absolute left-0 right-0 bottom-0 z-[6] px-14 pb-10 pt-8"
+    style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);">
+    <p class="bebas hero-line"
+      style="font-size: clamp(36px, 4.2vw, 62px); letter-spacing: 0.05em; opacity: 0; transform: translateY(20px); color: rgba(255,255,255,0.5);">
+      Sports PR from JAPAN, to the World.
     </p>
-
-    <!-- Byline -->
-    <p class="bebas text-white/50 text-[11px] tracking-[0.18em] mb-8 hero-line" style="opacity:0; transform:translateY(16px);">
-      CROSSBORDER SPORTS &nbsp;|&nbsp; representative / Abby Hall
-    </p>
-
-    <!-- CTA buttons -->
-    <div class="flex items-center gap-4 hero-line" style="opacity:0; transform:translateY(16px);">
-      <a href="#contact"
-        class="bg-[var(--crimson)] text-white gothic font-bold text-[14px] px-8 py-3.5 tracking-[0.06em] flex items-center gap-2 hover:bg-[#a00f26] transition-colors duration-200 whitespace-nowrap">
-        お問い合わせ <span class="text-base">→</span>
-      </a>
-      <a href="#services"
-        class="border border-white text-white gothic font-bold text-[14px] px-8 py-3.5 tracking-[0.06em] hover:bg-white/10 transition-colors duration-200 whitespace-nowrap">
-        サービスを見る
-      </a>
-    </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute left-1/2 -translate-x-1/2 bottom-8 z-[8] flex flex-col items-center text-white">
-    <div id="scroll-line" class="w-px h-8 bg-white/70 mt-2 origin-top"></div>
+  <div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-[8] flex flex-col items-center">
+    <div id="scroll-line" class="w-px h-8 bg-white/50 origin-top"></div>
   </div>
-
-  <!-- Bottom trusted bar -->
-  <div class="absolute left-0 right-0 bottom-0 z-[6] bg-black h-[28px]"></div>
 </section>
 
 <script>

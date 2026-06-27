@@ -1,55 +1,59 @@
 ---
 ---
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
   <div class="max-w-[1440px] mx-auto">
-    <!-- Black top bar -->
-    <div class="h-[28px] bg-black"></div>
+    <nav class="flex items-center justify-between px-12 h-[72px]"
+      style="background: rgba(0,0,0,0.35); backdrop-filter: blur(6px);">
 
-    <!-- Nav bar -->
-    <nav class="flex items-center justify-between px-14 h-[68px] bg-black/60 backdrop-blur-sm border-b border-white/5">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-[30px] h-[30px] border border-white rounded-full flex items-center justify-center text-[var(--crimson)] font-black text-sm">
-          ✕
+      <a href="#" class="flex items-center gap-2.5">
+        <!-- CBS badge mark -->
+        <div class="w-[42px] h-[42px] rounded-full border-2 flex items-center justify-center flex-shrink-0 overflow-hidden"
+          style="border-color: var(--crimson); background: rgba(196,18,48,0.15);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.2"/>
+            <line x1="4" y1="4" x2="18" y2="18" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="18" y1="4" x2="4" y2="18" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
         </div>
-        <div>
-          <div class="gothic text-white font-black text-[15px] tracking-[0.14em]">CROSSBORDER SPORTS</div>
-          <div class="mincho text-white/65 text-[10px] tracking-[0.08em] mt-0.5">日本×文化＝スポーツをつくる会社</div>
+        <div class="leading-tight">
+          <div class="gothic text-white font-black text-[13px] tracking-[0.12em]">CROSSBORDER</div>
+          <div class="gothic text-white font-black text-[13px] tracking-[0.12em]">SPORTS</div>
         </div>
       </a>
 
-      <!-- Nav links -->
-      <div class="flex items-center gap-8">
-        {['会社概要', 'サービス', '実績', 'ジャーナル'].map(link => (
-          <a href="#" class="gothic text-white font-bold text-[14px] tracking-[0.12em] hover:text-[var(--crimson)] transition-colors duration-200 relative group">
-            {link}
-            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--crimson)] group-hover:w-full transition-all duration-300"></span>
+      <!-- Nav links (English) -->
+      <div class="flex items-center gap-10">
+        {[
+          { label: 'About Us',  href: '#about' },
+          { label: 'Services',  href: '#services' },
+          { label: 'Works',     href: '#story' },
+          { label: 'Journal',   href: '#' },
+          { label: 'Contact',   href: '#contact' },
+        ].map(({ label, href }) => (
+          <a href={href}
+            class="gothic text-white font-medium text-[14px] tracking-[0.06em] opacity-90
+              hover:opacity-100 hover:text-[var(--crimson)] transition-colors duration-200 relative group">
+            {label}
+            <span class="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-[var(--crimson)]
+              group-hover:w-full transition-all duration-300 ease-out"></span>
           </a>
         ))}
       </div>
 
-      <!-- Right -->
-      <div class="flex items-center gap-5">
-        <span class="gothic text-white font-bold text-[13px] tracking-[0.1em] opacity-70 hover:opacity-100 transition-opacity">
-          JP / EN
-        </span>
-        <a href="#contact" class="bg-[var(--crimson)] text-white gothic font-bold text-[13px] px-5 py-2.5 tracking-[0.06em] hover:bg-[#a00f26] transition-colors duration-200">
-          お問い合わせ
-        </a>
-      </div>
+      <!-- Spacer to balance logo -->
+      <div class="w-[120px]"></div>
     </nav>
   </div>
 </header>
 
 <script>
-  const header = document.getElementById('site-header')!;
+  const nav = document.querySelector('#site-header nav') as HTMLElement;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      header.querySelector('nav')!.classList.add('bg-black/90');
-      header.querySelector('nav')!.classList.remove('bg-black/60');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(0,0,0,0.85)';
     } else {
-      header.querySelector('nav')!.classList.add('bg-black/60');
-      header.querySelector('nav')!.classList.remove('bg-black/90');
+      nav.style.background = 'rgba(0,0,0,0.35)';
     }
-  });
+  }, { passive: true });
 </script>
