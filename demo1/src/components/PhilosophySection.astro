@@ -1,0 +1,73 @@
+---
+---
+<section id="philosophy" class="relative w-full overflow-hidden" style="height: 600px; background: var(--ink);">
+
+  <!-- Label -->
+  <div class="lab absolute left-20 top-16 z-10 text-white tracking-[0.5em] opacity-85">PHILOSOPHY</div>
+
+  <!-- Giant X (Three.js rendered or CSS) -->
+  <div id="big-x" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]
+    gothic font-black select-none leading-none"
+    style="font-size: 620px; color: var(--crimson); opacity: 0; transform: translate(-50%, -50%) scale(0.7);">
+    ✕
+  </div>
+
+  <!-- Left text -->
+  <div class="gothic font-black text-white text-[36px] absolute left-32 top-1/2 -translate-y-1/2 z-10 reveal-up"
+    style="text-shadow: 0 2px 30px rgba(0,0,0,.5);">
+    外からの視点
+  </div>
+
+  <!-- Right text -->
+  <div class="gothic font-black text-white text-[36px] absolute right-32 top-1/2 -translate-y-1/2 z-10 text-right reveal-up"
+    style="text-shadow: 0 2px 30px rgba(0,0,0,.5);">
+    日本への深い理解
+  </div>
+
+  <!-- Bottom quote -->
+  <div class="mincho text-white text-[18px] italic absolute right-20 bottom-16 z-10 opacity-92 reveal-up">
+    だからこそ、私たちにできることがある。
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Big X reveal
+  gsap.to('#big-x', {
+    opacity: 1,
+    scale: 1,
+    duration: 1.2,
+    ease: 'expo.out',
+    scrollTrigger: {
+      trigger: '#philosophy',
+      start: 'top 70%',
+    },
+  });
+
+  // Slow rotation
+  gsap.to('#big-x', {
+    rotation: 10,
+    duration: 8,
+    ease: 'sine.inOut',
+    yoyo: true,
+    repeat: -1,
+  });
+
+  // Side texts
+  document.querySelectorAll('#philosophy .reveal-up').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      delay: i * 0.15 + 0.3,
+      scrollTrigger: {
+        trigger: '#philosophy',
+        start: 'top 70%',
+      },
+    });
+  });
+</script>

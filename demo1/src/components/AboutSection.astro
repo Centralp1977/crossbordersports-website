@@ -1,0 +1,65 @@
+---
+---
+<section id="about" class="w-full grid" style="grid-template-columns: 40% 60%; background: var(--ink);">
+
+  <!-- Portrait (left) -->
+  <div class="relative min-h-[760px] overflow-hidden">
+    <img
+      src="/images/portrait.jpeg"
+      alt="Abby Hall"
+      class="absolute inset-0 w-full h-full object-cover object-center brightness-75"
+      style="filter: brightness(0.7);"
+    />
+    <!-- Inner shadow overlay -->
+    <div class="absolute inset-0" style="box-shadow: inset 0 0 120px 40px var(--ink);"></div>
+  </div>
+
+  <!-- Text (right) -->
+  <div class="flex flex-col justify-center px-20 py-24">
+
+    <div class="lab mb-12 reveal-up" style="color: var(--crimson);">Ch.01 — About CBS</div>
+
+    {[
+      '日本人の謙虚さは、美しい。',
+      'でも、世界にはまだ伝わっていない。',
+      '私はイギリスで生まれ、<br>日本のスタジアムで心を奪われた。',
+      '外からの視点と、日本への深い理解。',
+      'その両方で、日本のスポーツを<br>世界の歓喜に変えたい。',
+    ].map((line) => (
+      <p
+        class="mincho text-white text-[26px] leading-[1.8] mb-9 reveal-up"
+        set:html={line}
+      />
+    ))}
+
+    <p class="mincho mb-10 reveal-up" style="color: var(--crimson); font-size: 16px;">── ABBY HALL ／ 代表</p>
+
+    <a href="#" class="gothic text-white font-bold text-[14px] reveal-up inline-block w-fit
+      border-b-2 pb-1 hover:opacity-70 transition-opacity duration-200"
+      style="border-color: var(--crimson);">
+      ロングインタビューを読む →
+    </a>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const items = document.querySelectorAll('#about .reveal-up');
+  items.forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+</script>

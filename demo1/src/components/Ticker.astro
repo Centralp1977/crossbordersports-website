@@ -1,0 +1,33 @@
+---
+---
+<div class="relative w-full bg-[var(--crimson)] h-[52px] overflow-hidden flex items-center">
+  <!-- Scrolling text -->
+  <div id="ticker-track" class="flex items-center whitespace-nowrap absolute left-0">
+    {[1, 2].map(() => (
+      <span class="gothic font-black text-white text-[14px] tracking-[0.08em] px-8">
+        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
+        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
+        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
+      </span>
+    ))}
+  </div>
+
+  <!-- Right label -->
+  <div class="absolute right-14 z-10 flex items-center gap-2 pointer-events-none">
+    <span class="lab text-white opacity-90">CROSS = 4 STRENGTHS</span>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const track = document.getElementById('ticker-track')!;
+  const width = track.scrollWidth / 2;
+
+  gsap.to(track, {
+    x: -width,
+    duration: 28,
+    ease: 'none',
+    repeat: -1,
+  });
+</script>

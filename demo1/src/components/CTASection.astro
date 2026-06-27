@@ -1,0 +1,35 @@
+---
+---
+<section id="contact" class="w-full text-center py-[120px] px-20" style="background:var(--crimson);">
+  <h2 class="gothic font-black text-white text-[64px] mb-7 leading-[1.05] reveal-up">
+    あなたの熱を、世界へ。
+  </h2>
+  <p class="mincho text-white/90 text-[18px] mb-12 reveal-up">
+    プロジェクトのご相談・お見積もりはお気軽に。
+  </p>
+  <a href="#"
+    class="gothic font-black text-[var(--crimson)] text-[16px] bg-white px-12 py-5 inline-block
+    hover:bg-white/90 transition-colors duration-200 reveal-up">
+    お問い合わせフォームへ →
+  </a>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('#contact .reveal-up').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 80%',
+      },
+    });
+  });
+</script>

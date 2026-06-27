@@ -1,1 +1,107 @@
 @import "tailwindcss";
+
+:root {
+  --crimson: #C41230;
+  --ink: #0E0E0E;
+  --navy: #06101a;
+  --paper: #F3F1EC;
+  --font-gothic: 'Noto Sans JP', sans-serif;
+  --font-mincho: 'Noto Serif JP', serif;
+  --font-bebas: 'Bebas Neue', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--ink);
+  font-family: var(--font-gothic);
+  color: #fff;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a, button { cursor: none; }
+
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--crimson);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s;
+}
+#cursor-follower {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+}
+
+.page-wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.gothic { font-family: var(--font-gothic); }
+.mincho { font-family: var(--font-mincho); }
+.bebas  { font-family: var(--font-bebas); }
+
+.lab {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 11px;
+}
+
+.rule {
+  width: 40px;
+  height: 2px;
+  background: var(--crimson);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.h900 {
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.padsec { padding: 96px 80px; }
+
+.ph {
+  background-color: #15151a;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,.045) 0 14px,
+    rgba(255,255,255,0) 14px 28px
+  );
+  position: relative;
+}
+.phcap {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  font-family: var(--font-bebas);
+  letter-spacing: .18em;
+  font-size: 14px;
+  color: rgba(255,255,255,.4);
+  white-space: nowrap;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(32px);
+}

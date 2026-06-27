@@ -1,0 +1,61 @@
+---
+const strengths = [
+  { num: '01', ja: 'カルチャー', en: 'Culture', desc: '日本のスポーツ文化を、世界の文脈に翻訳する。' },
+  { num: '02', ja: 'インパクト', en: 'Impact',  desc: '感情を動かすコンテンツで、熱狂を設計する。' },
+  { num: '03', ja: 'アピール',   en: 'Appeal',  desc: '日本のスポーツの魅力を、最大化して届ける。' },
+  { num: '04', ja: 'イメージ',   en: 'Image',   desc: '世界が抱く"日本"のイメージを、スポーツで塗り替える。' },
+];
+---
+<section id="strengths" class="padsec" style="background: var(--paper);">
+
+  <div class="lab mb-7 reveal-up" style="color: var(--ink);">Four Strengths ／ 4つの強み</div>
+
+  <h2 class="h900 mb-16 reveal-up" style="font-size: 38px; color: var(--ink); max-width: 840px;">
+    感情<span style="color:var(--crimson);">×</span>戦略<span style="color:var(--crimson);">×</span>文化<span style="color:var(--crimson);">×</span>発信。<br>
+    4つの交点に、CBSがいる。
+  </h2>
+
+  <!-- 2×2 card grid -->
+  <div class="relative grid grid-cols-2 border-l-2 border-b-2 border-[var(--ink)]">
+    {strengths.map((s, i) => (
+      <div
+        class:list={[
+          'strength-card bg-white border-t-2 border-[var(--ink)] px-11 py-12 min-h-[240px] reveal-up',
+          i % 2 === 0 ? 'border-r-2' : '',
+        ]}
+      >
+        <div class="gothic font-black text-[14px] tracking-[0.1em]" style="color:var(--crimson);">{s.num}</div>
+        <div class="h900 text-[28px] mt-3.5" style="color:var(--ink);">{s.ja}</div>
+        <div class="lab opacity-70 mt-2" style="color:var(--ink);">{s.en}</div>
+        <p class="mincho text-[15px] leading-[1.8] mt-5 max-w-[380px]" style="color:var(--ink);">{s.desc}</p>
+      </div>
+    ))}
+
+    <!-- Center X -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10
+      w-12 h-12 flex items-center justify-center"
+      style="background: var(--paper);">
+      <span class="h900 text-[28px]" style="color:var(--crimson);">✕</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('#strengths .reveal-up').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: '#strengths',
+        start: 'top 75%',
+      },
+    });
+  });
+</script>

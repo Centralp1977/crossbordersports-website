@@ -1,0 +1,70 @@
+---
+const cols = [
+  {
+    cat: '戦略を立てる',
+    cards: [
+      { title: 'グローバル戦略\nコンサルティング', desc: '海外展開の方針立案から実行までの戦略的アドバイス。' },
+      { title: '海外ステークホルダー調整', desc: '国際連盟・スポンサー・パートナーとの関係構築。' },
+    ],
+  },
+  {
+    cat: '発信する',
+    cards: [
+      { title: '英語SNS運用・\nコンテンツ制作', desc: '英語ネイティブが手がける投稿作成・アカウント運用。' },
+      { title: '英語プレスリリース作成・翻訳', desc: '伝わる英語で書いたプレスリリースと自然な翻訳。' },
+    ],
+  },
+  {
+    cat: 'メディアに届ける',
+    cards: [
+      { title: '海外メディア対応・\nPR支援', desc: '海外メディアへのアプローチから取材対応まで。' },
+      { title: '海外メディアトレーニング', desc: '取材・インタビュー・登壇に向けた実践的トレーニング。' },
+    ],
+  },
+];
+---
+<section id="services" class="padsec" style="background: var(--paper);">
+
+  <div class="lab mb-7 reveal-up" style="color:var(--ink);">Services ／ サービス</div>
+
+  <h2 class="h900 text-[48px] mb-5 reveal-up" style="color:var(--ink);">熱を、世界の言語に翻訳する。</h2>
+
+  <p class="mincho text-[18px] leading-[1.7] mb-18 reveal-up" style="color:var(--ink); margin-bottom: 72px;">
+    戦略を立てる、発信する、メディアに届ける。
+  </p>
+
+  <div class="grid grid-cols-3 gap-10">
+    {cols.map((col) => (
+      <div class="reveal-up">
+        <div class="h900 text-[22px] mb-0" style="color:var(--ink);">{col.cat}</div>
+        <div class="w-full h-[2px] mt-3.5" style="background:var(--crimson);"></div>
+        {col.cards.map((card) => (
+          <div class="bg-white border-t-[1.5px] border-[var(--ink)] px-8 py-8 mt-7">
+            <div class="h900 text-[22px] leading-[1.3] mb-3.5 whitespace-pre-line" style="color:var(--ink);">{card.title}</div>
+            <p class="mincho text-[15px] leading-[1.8]" style="color:var(--ink);">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('#services .reveal-up').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: '#services',
+        start: 'top 75%',
+      },
+    });
+  });
+</script>
