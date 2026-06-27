@@ -1,136 +1,31 @@
 ---
+// Hero visual — display the finished design image (hero-src2) as-is.
 ---
-<section class="hero-section relative w-full overflow-hidden" style="height: 100vh; min-height: 700px; background: #04111c;">
+<section class="hero-section relative w-full overflow-hidden" style="background:#04111c;">
 
-  <!-- Three.js particle canvas -->
-  <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-30"></canvas>
-
-  <!-- Hero background image -->
-  <div id="hero-bg" class="absolute inset-0 bg-center bg-cover scale-105"
-    style="background-image: url('/images/hero-bg.jpg'); background-position: center center; filter: saturate(1.15) contrast(1.05);">
-  </div>
-
-  <!-- Teal color grade overlay (subtle, left side only) -->
-  <div class="absolute inset-0 z-[2]"
-    style="background: linear-gradient(100deg, rgba(2,40,55,0.45) 0%, rgba(4,50,65,0.25) 35%, rgba(0,0,0,0) 65%);">
-  </div>
-  <!-- Bottom dark gradient for tagline readability -->
-  <div class="absolute inset-x-0 bottom-0 h-1/3 z-[2]"
-    style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);">
-  </div>
-  <!-- Headline shadow zone -->
-  <div class="absolute inset-y-0 left-0 w-2/5 z-[2]"
-    style="background: linear-gradient(to right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 100%);">
-  </div>
-
-  <!-- Red brush strokes (right side) -->
-  <div class="absolute right-0 top-0 h-full z-[3] pointer-events-none" style="width: 42%;" aria-hidden="true">
-    <svg width="100%" height="100%" viewBox="0 0 600 800" preserveAspectRatio="xMaxYMid slice" fill="none">
-      <!-- Main large diagonal brush -->
-      <polygon points="420,0 600,0 600,520 340,0" fill="#C41230" opacity="0.92"/>
-      <!-- Second brush stroke -->
-      <polygon points="480,0 600,0 600,200 440,0" fill="#a00f26" opacity="0.7"/>
-      <!-- Lower brush -->
-      <polygon points="380,800 600,400 600,800" fill="#C41230" opacity="0.55"/>
-      <!-- Thin accent lines -->
-      <polygon points="360,0 390,0 220,800 190,800" fill="#C41230" opacity="0.3"/>
-      <polygon points="320,0 345,0 175,800 150,800" fill="#C41230" opacity="0.18"/>
-    </svg>
-  </div>
-
-  <!-- Hero body content (left side) -->
-  <div id="hero-body" class="absolute z-[6]" style="left: 6%; bottom: 22%; max-width: 680px;">
-
-    <!-- Main headline -->
-    <h1 class="gothic font-black text-white leading-[1.1] mb-0" style="font-size: clamp(52px, 5.8vw, 76px);">
-      <span class="block hero-line" style="opacity:0; transform:translateY(28px); white-space: nowrap;">
-        "スポーツといえば日本"
-      </span>
-      <span class="block hero-line" style="opacity:0; transform:translateY(28px);">
-        を世界へ届ける
-      </span>
-    </h1>
-  </div>
-
-  <!-- Bottom tagline -->
-  <div class="absolute left-0 right-0 bottom-0 z-[6] px-14 pb-10 pt-8"
-    style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);">
-    <p class="bebas hero-line"
-      style="font-size: clamp(36px, 4.2vw, 62px); letter-spacing: 0.05em; opacity: 0; transform: translateY(20px); color: rgba(255,255,255,0.5);">
-      Sports PR from JAPAN, to the World.
-    </p>
-  </div>
+  <!-- Full hero visual, shown at its natural 16:9 ratio (no overlays, no crop) -->
+  <img
+    id="hero-main"
+    src="/images/hero-main.jpg"
+    alt="スポーツといえば日本を世界へ届ける — CROSSBORDER SPORTS"
+    class="block w-full h-auto select-none"
+    draggable="false"
+  />
 
   <!-- Scroll indicator -->
-  <div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-[8] flex flex-col items-center">
-    <div id="scroll-line" class="w-px h-8 bg-white/50 origin-top"></div>
+  <div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-[8] flex flex-col items-center pointer-events-none">
+    <div id="scroll-line" class="w-px h-8 bg-white/60 origin-top"></div>
   </div>
 </section>
 
 <script>
-  import * as THREE from 'three';
   import { gsap } from 'gsap';
 
-  // ── Three.js particle field ──────────────────────────────────────
-  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, canvas.offsetWidth / canvas.offsetHeight, 0.1, 100);
-  camera.position.z = 4;
-
-  // Particles
-  const count = 140;
-  const positions = new Float32Array(count * 3);
-  for (let i = 0; i < count; i++) {
-    positions[i * 3]     = (Math.random() - 0.5) * 14;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.04, transparent: true, opacity: 0.6 });
-  scene.add(new THREE.Points(geo, mat));
-
-  let mouseX = 0, mouseY = 0;
-  document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth  - 0.5) * 0.5;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 0.3;
-  });
-
-  function renderLoop() {
-    requestAnimationFrame(renderLoop);
-    camera.position.x += (mouseX - camera.position.x) * 0.04;
-    camera.position.y += (-mouseY - camera.position.y) * 0.04;
-    renderer.render(scene, camera);
-  }
-  renderLoop();
-
-  window.addEventListener('resize', () => {
-    renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-    camera.aspect = canvas.offsetWidth / canvas.offsetHeight;
-    camera.updateProjectionMatrix();
-  });
-
-  // ── Hero parallax ───────────────────────────────────────────────
-  const heroBg = document.getElementById('hero-bg')!;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY * 0.3;
-    heroBg.style.transform = `translateY(${y}px)`;
-  }, { passive: true });
-
-  // ── Hero text entry animation ────────────────────────────────────
-  const lines = document.querySelectorAll('.hero-line');
-  gsap.to(lines, {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: 'power3.out',
-    stagger: 0.12,
-    delay: 0.3,
-  });
+  // Gentle fade + zoom-settle on load (image itself is shown unaltered)
+  gsap.fromTo('#hero-main',
+    { opacity: 0, scale: 1.04 },
+    { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }
+  );
 
   // Scroll line pulse
   gsap.to('#scroll-line', {

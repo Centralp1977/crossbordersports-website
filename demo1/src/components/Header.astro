@@ -1,6 +1,7 @@
 ---
 ---
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+  style="transform: translateY(-100%); opacity: 0; pointer-events: none;">
   <div class="max-w-[1440px] mx-auto">
     <nav class="flex items-center justify-between px-12 h-[72px]"
       style="background: rgba(0,0,0,0.35); backdrop-filter: blur(6px);">
@@ -48,12 +49,27 @@
 </header>
 
 <script>
-  const nav = document.querySelector('#site-header nav') as HTMLElement;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      nav.style.background = 'rgba(0,0,0,0.85)';
+  const header = document.getElementById('site-header') as HTMLElement;
+  const nav = header.querySelector('nav') as HTMLElement;
+
+  function onScroll() {
+    // Reveal the sticky header only after scrolling past the hero visual,
+    // since the hero image already contains its own nav.
+    const heroEl = document.querySelector('.hero-section') as HTMLElement | null;
+    const trigger = heroEl ? heroEl.offsetHeight * 0.85 : 600;
+
+    if (window.scrollY > trigger) {
+      header.style.transform = 'translateY(0)';
+      header.style.opacity = '1';
+      header.style.pointerEvents = 'auto';
+      nav.style.background = 'rgba(0,0,0,0.9)';
     } else {
-      nav.style.background = 'rgba(0,0,0,0.35)';
+      header.style.transform = 'translateY(-100%)';
+      header.style.opacity = '0';
+      header.style.pointerEvents = 'none';
     }
-  }, { passive: true });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 </script>
