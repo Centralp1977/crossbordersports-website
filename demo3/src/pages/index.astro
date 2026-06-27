@@ -1,0 +1,1005 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CROSSBORDER SPORTS — 日本のスポーツを、世界へ。">
+  <div class="site">
+
+    <!-- ══ NAV ══ -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="/" class="logo" aria-label="CROSSBORDER SPORTS">
+          <div class="logo-icon">
+            <span class="beb">×</span>
+          </div>
+          <span class="logo-name">CROSSBORDER SPORTS</span>
+        </a>
+        <nav class="nav-links" aria-label="メインナビゲーション">
+          <a href="#about">会社概要</a>
+          <a href="#services">サービス</a>
+          <a href="#results">実績</a>
+          <a href="#journal">ジャーナル</a>
+          <a href="#contact" class="nav-cta">お問い合わせ</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img src="/hero.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label beb">CROSSBORDER SPORTS</p>
+        <h1 class="hero-title min">あなたの熱を、<br>世界へ。</h1>
+        <p class="hero-sub">日本のスポーツの感動を、世界の歓喜へと翻訳する。</p>
+        <a href="#contact" class="hero-btn">
+          お問い合わせ <span class="beb">→</span>
+        </a>
+      </div>
+      <div class="hero-scroll beb">SCROLL</div>
+    </section>
+
+    <!-- ══ TRUST BAR ══ -->
+    <section class="trust-bar">
+      <p class="trust-label beb">Trusted By</p>
+      <div class="trust-track-wrap">
+        <div class="trust-track">
+          <div class="trust-logos">
+            {Array.from({length: 6}).map(() => (
+              <div class="trust-logo"><span class="beb">LOGO</span></div>
+            ))}
+          </div>
+          <div class="trust-logos" aria-hidden="true">
+            {Array.from({length: 6}).map(() => (
+              <div class="trust-logo"><span class="beb">LOGO</span></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ NARRATION ══ -->
+    <section class="narration" id="about">
+      <div class="narration-text">
+        <p class="section-label beb">About ／ 私たちについて</p>
+        <blockquote class="narration-quote min">
+          <p>日本人の謙虚さは、美しい。</p>
+          <p>でも、世界にはまだ伝わっていない。</p>
+          <p>私はイギリスで生まれ、<br>日本のスタジアムで心を奪われた。</p>
+          <p>外からの視点と、日本への深い理解。</p>
+          <p>その両方で、日本のスポーツを<br>世界の歓喜に変えたい。</p>
+        </blockquote>
+        <div class="narration-sig">
+          <strong class="sig-name">ABBY HALL</strong>
+          <span class="sig-title min">Representative / CROSSBORDER SPORTS</span>
+        </div>
+      </div>
+      <div class="narration-photos">
+        <div class="photo-main ph-placeholder">
+          <span class="ph-label beb">過去のお写真など</span>
+        </div>
+        <div class="photo-sub ph-placeholder"></div>
+      </div>
+    </section>
+
+    <!-- ══ PHILOSOPHY ══ -->
+    <section class="philosophy">
+      <p class="section-label beb">Philosophy</p>
+      <div class="philosophy-cross">
+        <span class="cross-bg beb" aria-hidden="true">×</span>
+        <div class="phil-left">
+          <h2 class="phil-text">外からの視点</h2>
+        </div>
+        <div class="phil-divider" aria-hidden="true"></div>
+        <div class="phil-right">
+          <h2 class="phil-text">日本への深い理解</h2>
+        </div>
+      </div>
+      <p class="phil-sub min">だからこそ、私たちにできることがある。</p>
+    </section>
+
+    <!-- ══ FOUR STRENGTHS ══ -->
+    <section class="strengths sec-lt" id="results">
+      <p class="section-label beb">Four Strengths ／ 4つの強み</p>
+      <h2 class="strengths-heading">感情×戦略×文化×発信。<br>4つの交点に、CBSがいる。</h2>
+      <div class="strengths-grid">
+        <article class="strength-card">
+          <span class="card-num beb">01</span>
+          <h3 class="card-title">カルチャー</h3>
+          <p class="card-en beb">Culture</p>
+          <p class="card-body min">日本のスポーツ文化を、世界の文脈に翻訳する。</p>
+        </article>
+        <article class="strength-card">
+          <span class="card-num beb">02</span>
+          <h3 class="card-title">インパクト</h3>
+          <p class="card-en beb">Impact</p>
+          <p class="card-body min">感情を動かすコンテンツで、熱狂を設計する。</p>
+        </article>
+        <article class="strength-card">
+          <span class="card-num beb">03</span>
+          <h3 class="card-title">アピール</h3>
+          <p class="card-en beb">Appeal</p>
+          <p class="card-body min">日本のスポーツの魅力を、最大化して届ける。</p>
+        </article>
+        <article class="strength-card">
+          <span class="card-num beb">04</span>
+          <h3 class="card-title">イメージ</h3>
+          <p class="card-en beb">Image</p>
+          <p class="card-body min">世界が抱く"日本"のイメージを、スポーツで塗り替える。</p>
+        </article>
+        <div class="strengths-x beb" aria-hidden="true">×</div>
+      </div>
+    </section>
+
+    <!-- ══ SERVICES ══ -->
+    <section class="services sec-lt" id="services">
+      <p class="section-label beb">Services ／ サービス</p>
+      <h2 class="services-heading">熱を、世界の言語に翻訳する。</h2>
+      <p class="services-sub min">戦略を立てる、発信する、メディアに届ける。</p>
+      <div class="services-grid">
+
+        <div class="svc-col">
+          <svg class="svc-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#C41230" stroke-width="2">
+            <circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/>
+            <line x1="22" y1="2" x2="22" y2="9"/><line x1="22" y1="35" x2="22" y2="42"/>
+            <line x1="2" y1="22" x2="9" y2="22"/><line x1="35" y1="22" x2="42" y2="22"/>
+          </svg>
+          <h3 class="svc-cat">戦略を立てる</h3>
+          <div class="svc-item">
+            <p class="svc-name">グローバル戦略<br>コンサルティング</p>
+            <p class="svc-body min">海外展開の方針立案から実行までの戦略的アドバイス。</p>
+          </div>
+          <div class="svc-item">
+            <p class="svc-name">海外ステークホルダー調整</p>
+            <p class="svc-body min">国際連盟・スポンサー・パートナーとの関係構築。</p>
+          </div>
+        </div>
+
+        <div class="svc-col">
+          <svg class="svc-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#C41230" stroke-width="2" stroke-linecap="round">
+            <circle cx="22" cy="22" r="3.5" fill="#C41230" stroke="none"/>
+            <path d="M13 13 A13 13 0 0 0 13 31"/>
+            <path d="M31 13 A13 13 0 0 1 31 31"/>
+            <path d="M7 7 A21 21 0 0 0 7 37"/>
+            <path d="M37 7 A21 21 0 0 1 37 37"/>
+          </svg>
+          <h3 class="svc-cat">発信する</h3>
+          <div class="svc-item">
+            <p class="svc-name">英語SNS運用・<br>コンテンツ制作</p>
+            <p class="svc-body min">英語ネイティブが手がける投稿作成・アカウント運用。</p>
+          </div>
+          <div class="svc-item">
+            <p class="svc-name">英語プレスリリース<br>作成・翻訳</p>
+            <p class="svc-body min">伝わる英語で書いたプレスリリースと自然な翻訳。</p>
+          </div>
+        </div>
+
+        <div class="svc-col">
+          <svg class="svc-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#C41230" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M5 22 L39 7 L31 39 L22 26 Z"/>
+            <line x1="22" y1="26" x2="39" y2="7"/>
+          </svg>
+          <h3 class="svc-cat">メディアに届ける</h3>
+          <div class="svc-item">
+            <p class="svc-name">海外メディア対応・<br>PR支援</p>
+            <p class="svc-body min">海外メディアへのアプローチから取材対応まで。</p>
+          </div>
+          <div class="svc-item">
+            <p class="svc-name">海外メディア<br>トレーニング</p>
+            <p class="svc-body min">取材・インタビュー・登壇に向けた実践的トレーニング。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ STORY ══ -->
+    <section class="story" id="journal">
+      <div class="story-text">
+        <p class="section-label-crim beb">Story ／ 物語</p>
+        <h2 class="story-heading min">日本のスポーツファンに、<br>恋をした。</h2>
+        <p class="story-attr">── ABBY HALL</p>
+        <p class="story-body min">
+          ある日、彼女はスタジアムで日本のファンに出会い、その熱狂に心を奪われた。外からの視点だからこそ見える、日本のスポーツの本質的な美しさ。
+        </p>
+        <a href="#journal" class="link-dark">ロングインタビューを読む →</a>
+      </div>
+      <div class="story-photo ph-placeholder">
+        <span class="ph-label beb">ABBY — cinematic vertical portrait</span>
+      </div>
+    </section>
+
+    <!-- ══ NEWS ══ -->
+    <section class="news sec-wh">
+      <div class="news-header">
+        <div>
+          <p class="section-label-crim beb" style="font-size:30px">News ／ ニュース</p>
+          <h2 class="news-heading">最新のうごき。</h2>
+        </div>
+        <a href="#" class="link-dark">ニュース一覧へ →</a>
+      </div>
+      <div class="news-list">
+        <a href="#" class="news-row">
+          <span class="news-date beb">2026.05.20</span>
+          <span class="news-cat beb">PRESS</span>
+          <span class="news-title min">CROSSBORDER SPORTS、海外PR支援プログラムを始動。</span>
+          <span class="news-arr beb">→</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-date beb">2026.04.12</span>
+          <span class="news-cat beb">EVENT</span>
+          <span class="news-title min">代表アビー・ホール、国際スポーツカンファレンスに登壇。</span>
+          <span class="news-arr beb">→</span>
+        </a>
+        <a href="#" class="news-row">
+          <span class="news-date beb">2026.03.03</span>
+          <span class="news-cat beb">JOURNAL</span>
+          <span class="news-title min">「恋をした」── 代表ロングインタビューを公開しました。</span>
+          <span class="news-arr beb">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT CTA ══ -->
+    <section class="cta" id="contact">
+      <h2 class="cta-heading">あなたの熱を、世界へ。</h2>
+      <p class="cta-sub min">プロジェクトのご相談・お見積もりはお気軽に。</p>
+      <button class="cta-btn">
+        お問い合わせフォームへ <span class="beb">→</span>
+      </button>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+      <div class="footer-top">
+        <a href="/" class="logo" aria-label="CROSSBORDER SPORTS">
+          <div class="logo-icon">
+            <span class="beb">×</span>
+          </div>
+          <span class="logo-name wht">CROSSBORDER SPORTS</span>
+        </a>
+        <nav class="footer-links" aria-label="フッターナビゲーション">
+          <a href="#about">会社概要</a>
+          <a href="#services">サービス</a>
+          <a href="#results">実績</a>
+          <a href="#journal">ジャーナル</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+        <div class="footer-social">
+          <div class="soc-icon">IG</div>
+          <div class="soc-icon">X</div>
+          <div class="soc-icon">Note</div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <p class="footer-copy beb">© 2026 CROSSBORDER SPORTS. All rights reserved.</p>
+    </footer>
+
+  </div>
+</Layout>
+
+<style>
+  /* ── BASE ── */
+  .beb { font-family: 'Bebas Neue', sans-serif; font-weight: 400; }
+  .min { font-family: 'Noto Serif JP', serif; }
+  .wht { color: #fff; }
+
+  .site {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .5em;
+    font-size: 11px;
+    color: #0E0E0E;
+    text-transform: uppercase;
+  }
+  .section-label-crim {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .38em;
+    font-size: 14px;
+    color: #C41230;
+    text-transform: uppercase;
+  }
+  .sec-lt { background: #F3F1EC; }
+  .sec-wh { background: #fff; }
+
+  .link-dark {
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 2px solid #C41230;
+    padding-bottom: 4px;
+    display: inline-block;
+    text-decoration: none;
+    color: #0E0E0E;
+  }
+
+  .ph-placeholder {
+    background: #e6e3db
+      repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,.05) 0 14px,
+        transparent 14px 28px
+      );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ph-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .3em;
+    font-size: 13px;
+    color: rgba(14,14,14,.42);
+    text-align: center;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid rgba(14,14,14,.08);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+    height: 72px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid #C41230;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .logo-icon .beb {
+    font-size: 16px;
+    color: #C41230;
+    line-height: 1;
+  }
+  .logo-name {
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: .14em;
+    color: #0E0E0E;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0E0E0E;
+    letter-spacing: .04em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #C41230; }
+  .nav-cta {
+    color: #C41230 !important;
+    border-bottom: 2px solid #C41230;
+    padding-bottom: 2px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 640px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(14,14,14,.72) 0%,
+      rgba(14,14,14,.3) 60%,
+      transparent 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: .5em;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: 72px;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .04em;
+    margin-bottom: 40px;
+  }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    color: #C41230;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 18px 44px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    width: fit-content;
+  }
+  .hero-btn:hover { background: #C41230; color: #fff; }
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    right: 64px;
+    z-index: 2;
+    font-size: 10px;
+    letter-spacing: .4em;
+    color: rgba(255,255,255,.5);
+    writing-mode: vertical-rl;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: #0E0E0E;
+    padding: 80px 0;
+  }
+  .trust-label {
+    padding: 0 100px;
+    letter-spacing: .5em;
+    font-size: 11px;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 44px;
+  }
+  .trust-track-wrap { overflow: hidden; }
+  .trust-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 24s linear infinite;
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  .trust-logos {
+    display: flex;
+    gap: 48px;
+    padding-right: 48px;
+  }
+  .trust-logo {
+    width: 160px;
+    height: 48px;
+    background: rgba(255,255,255,.08);
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trust-logo .beb {
+    font-size: 11px;
+    letter-spacing: .3em;
+    color: rgba(255,255,255,.3);
+  }
+
+  /* ── NARRATION ── */
+  .narration {
+    background: #F3F1EC;
+    display: flex;
+    align-items: stretch;
+    min-height: 640px;
+  }
+  .narration-text {
+    width: 55%;
+    padding: 100px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .narration-quote {
+    font-size: 24px;
+    line-height: 1.9;
+    color: #0E0E0E;
+    margin-top: 52px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .narration-sig {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .sig-name {
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: .04em;
+    color: #0E0E0E;
+  }
+  .sig-title {
+    font-size: 12px;
+    color: rgba(14,14,14,.6);
+  }
+  .narration-photos {
+    width: 45%;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+  .photo-main {
+    flex: 2;
+    border-radius: 4px;
+    min-height: 280px;
+  }
+  .photo-sub {
+    flex: 1;
+    border-radius: 4px;
+    min-height: 140px;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy {
+    background: #fff;
+    padding: 100px;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .philosophy .section-label {
+    position: absolute;
+    top: 56px;
+    left: 100px;
+  }
+  .philosophy-cross {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    justify-content: center;
+  }
+  .cross-bg {
+    position: absolute;
+    font-size: 520px;
+    line-height: .8;
+    color: #C41230;
+    opacity: .07;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .phil-left, .phil-right {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+  .phil-left { text-align: right; }
+  .phil-right { text-align: left; }
+  .phil-text {
+    font-weight: 900;
+    font-size: 36px;
+    color: #0E0E0E;
+    line-height: 1.3;
+  }
+  .phil-divider {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    flex: none;
+  }
+  .phil-divider::before {
+    content: '×';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #C41230;
+  }
+  .phil-sub {
+    position: absolute;
+    bottom: 72px;
+    font-size: 18px;
+    font-style: italic;
+    color: #0E0E0E;
+    z-index: 2;
+  }
+
+  /* ── FOUR STRENGTHS ── */
+  .strengths {
+    padding: 100px;
+  }
+  .strengths-heading {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.5;
+    color: #0E0E0E;
+    max-width: 880px;
+    margin-top: 36px;
+    margin-bottom: 64px;
+  }
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    position: relative;
+  }
+  .strength-card {
+    background: #fff;
+    border-top: 2px solid #0E0E0E;
+    padding: 42px;
+  }
+  .card-num {
+    font-size: 14px;
+    color: #C41230;
+    font-weight: 900;
+  }
+  .card-title {
+    font-weight: 900;
+    font-size: 28px;
+    color: #0E0E0E;
+    margin-top: 14px;
+  }
+  .card-en {
+    font-size: 11px;
+    letter-spacing: .38em;
+    color: #0E0E0E;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+  .card-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #0E0E0E;
+    margin-top: 18px;
+  }
+  .strengths-x {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: #F3F1EC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C41230;
+    font-size: 34px;
+    z-index: 2;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 100px;
+  }
+  .services-heading {
+    font-weight: 900;
+    font-size: 44px;
+    color: #0E0E0E;
+    margin-top: 32px;
+    margin-bottom: 20px;
+  }
+  .services-sub {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #0E0E0E;
+    margin-bottom: 64px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .svc-icon {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .svc-cat {
+    font-weight: 900;
+    font-size: 22px;
+    color: #0E0E0E;
+    border-bottom: 2px solid #C41230;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+  }
+  .svc-item {
+    border-top: 1.5px solid #0E0E0E;
+    padding: 28px 0;
+  }
+  .svc-item + .svc-item { margin-top: 0; }
+  .svc-name {
+    font-weight: 900;
+    font-size: 19px;
+    color: #0E0E0E;
+    line-height: 1.35;
+  }
+  .svc-body {
+    font-size: 14px;
+    color: #0E0E0E;
+    line-height: 1.8;
+    margin-top: 12px;
+  }
+
+  /* ── STORY ── */
+  .story {
+    display: flex;
+    background: #fff;
+    min-height: 580px;
+  }
+  .story-text {
+    width: 55%;
+    padding: 110px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .story-heading {
+    font-size: 46px;
+    line-height: 1.4;
+    color: #0E0E0E;
+    margin-top: 44px;
+    margin-bottom: 32px;
+  }
+  .story-attr {
+    font-size: 14px;
+    letter-spacing: .2em;
+    color: #0E0E0E;
+    margin-bottom: 36px;
+  }
+  .story-body {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #0E0E0E;
+    max-width: 460px;
+    margin-bottom: 40px;
+  }
+  .story-photo {
+    width: 45%;
+    min-height: 580px;
+  }
+
+  /* ── NEWS ── */
+  .news {
+    padding: 100px;
+  }
+  .news-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  .news-heading {
+    font-weight: 900;
+    font-size: 40px;
+    color: #0E0E0E;
+    margin-top: 28px;
+  }
+  .news-list {
+    border-bottom: 1px solid rgba(14,14,14,.16);
+  }
+  .news-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(14,14,14,.16);
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .news-row:hover { background: rgba(14,14,14,.02); }
+  .news-date {
+    font-size: 18px;
+    letter-spacing: .1em;
+    color: #C41230;
+    width: 110px;
+    flex: none;
+  }
+  .news-cat {
+    font-size: 11px;
+    letter-spacing: .22em;
+    color: #0E0E0E;
+    border: 1px solid #0E0E0E;
+    padding: 4px 12px;
+    width: 96px;
+    text-align: center;
+    flex: none;
+  }
+  .news-title {
+    font-size: 18px;
+    color: #0E0E0E;
+    flex: 1;
+    line-height: 1.6;
+  }
+  .news-arr {
+    font-size: 20px;
+    color: #C41230;
+  }
+
+  /* ── CONTACT CTA ── */
+  .cta {
+    background: #C41230;
+    padding: 120px 100px;
+    text-align: center;
+  }
+  .cta-heading {
+    font-weight: 900;
+    font-size: 64px;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,.92);
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+  .cta-btn {
+    background: #fff;
+    color: #C41230;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 18px 48px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: opacity .2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .cta-btn:hover { opacity: .88; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #0E0E0E;
+    padding: 56px 100px;
+  }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer .logo-name { color: #fff; }
+  .footer-links {
+    display: flex;
+    gap: 36px;
+  }
+  .footer-links a {
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: .14em;
+    color: rgba(255,255,255,.7);
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+  }
+  .soc-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: rgba(255,255,255,.75);
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color .2s;
+  }
+  .soc-icon:hover { border-color: #fff; }
+  .footer-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 40px 0;
+  }
+  .footer-copy {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: .22em;
+    color: rgba(255,255,255,.4);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // NAV scroll effect
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({
+    start: 'top -80',
+    end: 99999,
+    toggleClass: { className: 'nav--scrolled', targets: nav }
+  });
+
+  // Section fade-in reveal
+  const reveals = document.querySelectorAll(
+    '.narration-text, .narration-photos, .philosophy-cross, .phil-sub, ' +
+    '.strengths-heading, .strength-card, .services-heading, .svc-col, ' +
+    '.story-text, .story-photo, .news-header, .news-row, .cta-heading, .cta-sub, .cta-btn'
+  );
+
+  reveals.forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 40,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      }
+    });
+  });
+
+  // Hero entrance
+  gsap.from('.hero-label', { opacity: 0, y: 20, duration: 0.8, delay: 0.3 });
+  gsap.from('.hero-title',  { opacity: 0, y: 30, duration: 1.0, delay: 0.5 });
+  gsap.from('.hero-sub',    { opacity: 0, y: 20, duration: 0.8, delay: 0.8 });
+  gsap.from('.hero-btn',    { opacity: 0, y: 20, duration: 0.8, delay: 1.0 });
+</script>
