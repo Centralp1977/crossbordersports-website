@@ -1,0 +1,24 @@
+﻿{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "demo1",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--prefix", "demo1"],
+      "port": 4321
+    },
+    {
+      "name": "demo2",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "demo2", "run", "dev", "--", "--port", "4322"],
+      "port": 4322
+    },
+    {
+      "name": "demo3",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "demo3", "run", "dev"],
+      "port": 4323,
+      "autoPort": true
+    }
+  ]
+}
