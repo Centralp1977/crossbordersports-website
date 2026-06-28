@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBS Website Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0E0E0E;
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .header {
+      padding: 60px 40px 40px;
+      text-align: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+      text-decoration: none;
+    }
+    .logo-x {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: #C41230;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid #C41230;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-name {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .16em;
+      color: #fff;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .12em;
+      margin-top: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 40px 80px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: background .2s;
+      border-top: 2px solid transparent;
+    }
+    .card:hover {
+      background: #222;
+      border-top-color: #C41230;
+    }
+    .card-label {
+      font-size: 10px;
+      letter-spacing: .18em;
+      color: #C41230;
+      font-weight: 700;
+    }
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: .06em;
+      line-height: 1;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.8;
+    }
+    .card-arrow {
+      font-size: 18px;
+      color: #C41230;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-x">×</div>
+      <div class="logo-name">CROSS BORDER<br>SPORTS</div>
+    </div>
+    <p class="subtitle">WEBSITE CONCEPT DEMOS</p>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="./demo1/">
+      <span class="card-label">DEMO 01</span>
+      <span class="card-title">CONCEPT A</span>
+      <p class="card-desc">ヒーロービジュアル重視<br>ダイナミックな構成案</p>
+      <span class="card-arrow">→</span>
+    </a>
+    <a class="card" href="./demo2/">
+      <span class="card-label">DEMO 02</span>
+      <span class="card-title">PLAN B<br>THE CROSS</span>
+      <p class="card-desc">×モチーフを中心に据えた<br>ドラマティックな構成案</p>
+      <span class="card-arrow">→</span>
+    </a>
+    <a class="card" href="./demo3/">
+      <span class="card-label">DEMO 03</span>
+      <span class="card-title">PLAN A<br>PREMIUM</span>
+      <p class="card-desc">ホワイト基調のクリーンで<br>プレミアムな構成案</p>
+      <span class="card-arrow">→</span>
+    </a>
+  </div>
+</body>
+</html>

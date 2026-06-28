@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build demo1
+        run: |
+          cd demo1
+          npm ci
+          npm run build
+
+      - name: Build demo2
+        run: |
+          cd demo2
+          npm ci
+          npm run build
+
+      - name: Build demo3
+        run: |
+          cd demo3
+          npm ci
+          npm run build
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/demo1 _site/demo2 _site/demo3
+          cp -r demo1/dist/* _site/demo1/
+          cp -r demo2/dist/* _site/demo2/
+          cp -r demo3/dist/* _site/demo3/
+          cp index.html _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
