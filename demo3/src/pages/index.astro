@@ -98,25 +98,25 @@ import Layout from '../layouts/Layout.astro';
   <!-- ════════════════════════════════
        ③ NARRATION
   ════════════════════════════════ -->
-  <section data-reveal style="display:flex;position:relative" class="bglt" id="about">
-    <div style="width:60%;padding:100px 96px;position:relative">
+  <section data-reveal class="bglt about-sec" id="about">
+    <div class="about-text">
       <div class="lbl blk" style="letter-spacing:.5em;font-size:11px">About ／ 私たちについて</div>
-      <div class="min blk" style="font-size:26px;line-height:1.85;margin-top:52px">
+      <div class="min blk about-quote">
         <p>日本人の謙虚さは、美しい。</p>
-        <p style="margin-top:40px">でも、世界にはまだ伝わっていない。</p>
-        <p style="margin-top:40px">私はイギリスで生まれ、<br>日本のスタジアムで心を奪われた。</p>
-        <p style="margin-top:40px">外からの視点と、日本への深い理解。</p>
-        <p style="margin-top:40px">その両方で、日本のスポーツを<br>世界の歓喜に変えたい。</p>
+        <p class="about-para">でも、世界にはまだ伝わっていない。</p>
+        <p class="about-para">私はイギリスで生まれ、<br>日本のスタジアムで心を奪われた。</p>
+        <p class="about-para">外からの視点と、日本への深い理解。</p>
+        <p class="about-para">その両方で、日本のスポーツを<br>世界の歓喜に変えたい。</p>
       </div>
-      <div class="blk h9" style="font-size:15px;letter-spacing:.04em;text-align:right;margin-top:48px">ABBY HALL</div>
-      <div class="min" style="font-size:12px;color:rgba(14,14,14,.6);margin-top:6px;text-align:right">Representative / CROSSBORDER SPORTS</div>
+      <div class="blk h9 about-sig">ABBY HALL</div>
+      <div class="min about-role">Representative / CROSSBORDER SPORTS</div>
     </div>
-    <!-- Photos (right 40%) -->
-    <div style="position:relative;width:40%;min-height:640px">
-      <div class="phl" style="position:absolute;right:40px;top:40px;width:320px;height:420px;border-radius:8px">
+    <!-- Photos -->
+    <div class="about-photos">
+      <div class="phl about-ph1">
         <div class="phlabd" style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%)">過去のお写真など</div>
       </div>
-      <div class="phl" style="position:absolute;right:80px;bottom:40px;width:260px;height:300px;border-radius:8px">
+      <div class="phl about-ph2">
         <div class="phlabd" style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%)">お写真</div>
       </div>
     </div>
@@ -365,6 +365,27 @@ import Layout from '../layouts/Layout.astro';
 
   .phl  { background:#e6e3db repeating-linear-gradient(45deg,rgba(0,0,0,.05) 0 14px,transparent 14px 28px) }
   .phlabd { font-family:'Bebas Neue',sans-serif; letter-spacing:.3em; font-size:13px; color:rgba(14,14,14,.42); text-align:center }
+
+  /* ── ABOUT SECTION ── */
+  .about-sec  { display:flex; position:relative }
+  .about-text { width:60%; padding:100px 96px; position:relative }
+  .about-quote { font-size:26px; line-height:1.85; margin-top:52px }
+  .about-para { margin-top:40px }
+  .about-sig  { font-size:15px; letter-spacing:.04em; text-align:right; margin-top:48px }
+  .about-role { font-size:12px; color:rgba(14,14,14,.6); margin-top:6px; text-align:right }
+  .about-photos { position:relative; width:40%; min-height:640px }
+  .about-ph1 { position:absolute; right:40px; top:40px; width:320px; height:420px; border-radius:8px }
+  .about-ph2 { position:absolute; right:80px; bottom:40px; width:260px; height:300px; border-radius:8px }
+
+  @media (max-width: 767px) {
+    .about-sec   { flex-direction:column }
+    .about-text  { width:100%; padding:56px 24px 44px }
+    .about-quote { font-size:clamp(18px,5vw,22px) }
+    .about-para  { margin-top:28px }
+    .about-photos { width:100%; min-height:0; padding:0 24px 52px; display:flex; flex-direction:column; gap:16px }
+    .about-ph1   { position:static; width:100%; height:240px; border-radius:8px }
+    .about-ph2   { position:static; width:100%; height:180px; border-radius:8px }
+  }
 
   .card { background:#fff; border-top:2px solid #0E0E0E; padding:42px }
 
