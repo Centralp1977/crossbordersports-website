@@ -25,22 +25,13 @@ jobs:
           node-version: 22
 
       - name: Build demo1
-        run: |
-          cd demo1
-          npm ci
-          npm run build
+        run: cd demo1 && npm ci && npm run build
 
       - name: Build demo2
-        run: |
-          cd demo2
-          npm ci
-          npm run build
+        run: cd demo2 && npm ci && npm run build
 
       - name: Build demo3
-        run: |
-          cd demo3
-          npm ci
-          npm run build
+        run: cd demo3 && npm ci && npm run build
 
       - name: Assemble site
         run: |

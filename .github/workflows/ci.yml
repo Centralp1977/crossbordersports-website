@@ -1,0 +1,26 @@
+name: CI — Build check
+
+on:
+  push:
+    branches: [develop, 'feature/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build demo1
+        run: cd demo1 && npm ci && npm run build
+
+      - name: Build demo2
+        run: cd demo2 && npm ci && npm run build
+
+      - name: Build demo3
+        run: cd demo3 && npm ci && npm run build
