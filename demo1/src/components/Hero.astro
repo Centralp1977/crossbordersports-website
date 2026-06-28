@@ -1,33 +1,44 @@
 ---
-// Hero visual — display the finished design image (hero-src2) as-is.
+// Hero visual — display the finished design image (hero-src2) edge-to-edge,
+// cropping intelligently across mobile / tablet / desktop.
 ---
-<section class="hero-section relative w-full overflow-hidden" style="background:#04111c;">
+<section class="hero-section relative w-full overflow-hidden" style="background:#04111c; height: 100vh; min-height: 560px;">
 
-  <!-- Full hero visual, shown at its natural 16:9 ratio (no overlays, no crop) -->
-  <img
+  <!-- Full hero visual, sized to fill the viewport on every breakpoint -->
+  <div
     id="hero-main"
-    src="/images/hero-main.jpg"
-    alt="スポーツといえば日本を世界へ届ける — CROSSBORDER SPORTS"
-    class="block w-full h-auto select-none"
-    draggable="false"
-  />
+    role="img"
+    aria-label="スポーツといえば日本を世界へ届ける — CROSSBORDER SPORTS"
+    class="absolute inset-0 w-full h-full"
+    style="background-image: url('/images/hero-main.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+  ></div>
 
   <!-- Scroll indicator -->
   <div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-[8] flex flex-col items-center pointer-events-none">
-    <div id="scroll-line" class="w-px h-8 bg-white/60 origin-top"></div>
+    <div id="scroll-line" class="w-px h-8 bg-white/70 origin-top"></div>
   </div>
 </section>
+
+<style>
+  /* On narrower viewports, shift focus toward the stadium center rather than
+     letting cover-mode clip the headline off the left edge. */
+  @media (max-width: 1024px) {
+    .hero-section #hero-main { background-position: 38% center !important; }
+  }
+  @media (max-width: 640px) {
+    .hero-section { height: 100svh; min-height: 520px; }
+    .hero-section #hero-main { background-position: 32% center !important; }
+  }
+</style>
 
 <script>
   import { gsap } from 'gsap';
 
-  // Gentle fade + zoom-settle on load (image itself is shown unaltered)
   gsap.fromTo('#hero-main',
     { opacity: 0, scale: 1.04 },
     { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }
   );
 
-  // Scroll line pulse
   gsap.to('#scroll-line', {
     scaleY: 0,
     duration: 0.8,

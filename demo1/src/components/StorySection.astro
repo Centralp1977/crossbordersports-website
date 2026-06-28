@@ -1,34 +1,53 @@
 ---
+// Story — message first, then image. Always stacked vertically.
 ---
-<section id="story" class="w-full grid" style="grid-template-columns: 55% 45%; background: var(--ink);">
+<section id="story" class="w-full" style="background: var(--ink);">
 
-  <!-- Text (left) -->
-  <div class="px-20 py-[120px]">
-    <div class="lab mb-9 reveal-up" style="color:var(--crimson);">Story ／ 物語</div>
+  <!-- (a) Message block -->
+  <div class="mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 lg:py-32 max-w-[1040px]">
+
+    <div class="lab mb-8 reveal-up" style="color: var(--crimson);">Story ／ 物語</div>
 
     <h2 class="mincho text-white font-semibold leading-[1.4] mb-7 reveal-up"
-      style="font-size:48px;">
+      style="font-size: clamp(28px, 4.2vw, 48px);">
       日本のスポーツファンに、<br>恋をした。
     </h2>
 
-    <p class="gothic text-white font-bold text-[14px] tracking-[0.18em] mb-9 reveal-up">── ABBY HALL</p>
+    <p class="gothic text-white font-bold tracking-[0.18em] mb-9 reveal-up"
+      style="font-size: 14px;">
+      ── ABBY HALL
+    </p>
 
-    <p class="mincho text-white/90 text-[16px] leading-[1.9] max-w-[460px] mb-10 reveal-up">
+    <p class="mincho text-white/90 leading-[1.9] max-w-[640px] mb-10 reveal-up"
+      style="font-size: clamp(15px, 1.55vw, 17px);">
       ある日、彼女はスタジアムで日本のファンに出会い、その熱狂に心を奪われた。外からの視点だからこそ見える、日本のスポーツの本質的な美しさ。
     </p>
 
     <a href="#" class="gothic text-white font-bold text-[15px] inline-block reveal-up
       border-b-2 pb-1 hover:opacity-70 transition-opacity duration-200 w-fit"
-      style="border-color:var(--crimson);">
+      style="border-color: var(--crimson);">
       ロングインタビューを読む →
     </a>
   </div>
 
-  <!-- Portrait placeholder (right) -->
-  <div class="ph min-h-[620px]" style="filter:brightness(.8);">
-    <div class="phcap">PORTRAIT — ABBY (CINEMATIC)</div>
+  <!-- (b) Full-bleed image block -->
+  <div class="relative w-full overflow-hidden">
+    <div class="relative w-full story-frame">
+      <div class="absolute inset-0 ph reveal-up" style="filter: brightness(0.85);">
+        <div class="phcap">PORTRAIT — ABBY (CINEMATIC)</div>
+      </div>
+      <div class="absolute inset-0 pointer-events-none"
+        style="background: linear-gradient(180deg, rgba(14,14,14,0.45) 0%, rgba(14,14,14,0) 22%, rgba(14,14,14,0) 78%, rgba(14,14,14,0.6) 100%);">
+      </div>
+    </div>
   </div>
 </section>
+<style>
+  .story-frame { aspect-ratio: 4 / 5; max-height: 720px; }
+  @media (min-width: 768px) {
+    .story-frame { aspect-ratio: 21 / 9; }
+  }
+</style>
 
 <script>
   import { gsap } from 'gsap';
@@ -37,15 +56,9 @@
 
   document.querySelectorAll('#story .reveal-up').forEach((el, i) => {
     gsap.to(el, {
-      opacity: 1,
-      y: 0,
-      duration: 0.75,
-      ease: 'power3.out',
-      delay: i * 0.12,
-      scrollTrigger: {
-        trigger: '#story',
-        start: 'top 78%',
-      },
+      opacity: 1, y: 0, duration: 0.75, ease: 'power3.out',
+      delay: (i % 6) * 0.12,
+      scrollTrigger: { trigger: el, start: 'top 88%' },
     });
   });
 </script>

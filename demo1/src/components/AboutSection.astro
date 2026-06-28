@@ -1,23 +1,13 @@
 ---
+// About CBS — split into two stacked sections:
+//   (a) message-only block
+//   (b) full-bleed portrait image block
 ---
-<section id="about" class="w-full grid" style="grid-template-columns: 40% 60%; background: var(--ink);">
+<!-- (a) Message block -->
+<section id="about" class="w-full" style="background: var(--ink);">
+  <div class="mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 lg:py-32 max-w-[1040px]">
 
-  <!-- Portrait (left) -->
-  <div class="relative min-h-[760px] overflow-hidden">
-    <img
-      src="/images/portrait.jpeg"
-      alt="Abby Hall"
-      class="absolute inset-0 w-full h-full object-cover object-center brightness-75"
-      style="filter: brightness(0.7);"
-    />
-    <!-- Inner shadow overlay -->
-    <div class="absolute inset-0" style="box-shadow: inset 0 0 120px 40px var(--ink);"></div>
-  </div>
-
-  <!-- Text (right) -->
-  <div class="flex flex-col justify-center px-20 py-24">
-
-    <div class="lab mb-12 reveal-up" style="color: var(--crimson);">Ch.01 — About CBS</div>
+    <div class="lab mb-10 reveal-up" style="color: var(--crimson);">Ch.01 — About CBS</div>
 
     {[
       '日本人の謙虚さは、美しい。',
@@ -27,12 +17,15 @@
       'その両方で、日本のスポーツを<br>世界の歓喜に変えたい。',
     ].map((line) => (
       <p
-        class="mincho text-white text-[26px] leading-[1.8] mb-9 reveal-up"
+        class="mincho text-white leading-[1.9] mb-7 reveal-up"
+        style="font-size: clamp(18px, 2.2vw, 26px);"
         set:html={line}
       />
     ))}
 
-    <p class="mincho mb-10 reveal-up" style="color: var(--crimson); font-size: 16px;">── ABBY HALL ／ 代表</p>
+    <p class="mincho mt-4 mb-10 reveal-up" style="color: var(--crimson); font-size: clamp(14px, 1.4vw, 16px);">
+      ── ABBY HALL ／ 代表
+    </p>
 
     <a href="#" class="gothic text-white font-bold text-[14px] reveal-up inline-block w-fit
       border-b-2 pb-1 hover:opacity-70 transition-opacity duration-200"
@@ -42,19 +35,41 @@
   </div>
 </section>
 
+<!-- (b) Portrait block (full-bleed image below the message) -->
+<section id="about-portrait" class="relative w-full overflow-hidden" style="background: var(--ink);">
+  <!-- Mobile: taller 4:5; tablet+: cinematic 16:9 -->
+  <div class="relative w-full portrait-frame">
+    <img
+      src="/images/portrait.jpeg"
+      alt="Abby Hall — CROSSBORDER SPORTS 代表"
+      class="absolute inset-0 w-full h-full object-cover object-center reveal-up"
+      style="filter: brightness(0.78);"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 pointer-events-none"
+      style="background: linear-gradient(180deg, rgba(14,14,14,0.45) 0%, rgba(14,14,14,0) 22%, rgba(14,14,14,0) 78%, rgba(14,14,14,0.6) 100%);">
+    </div>
+  </div>
+</section>
+<style>
+  .portrait-frame { aspect-ratio: 4 / 5; max-height: 720px; }
+  @media (min-width: 768px) {
+    .portrait-frame { aspect-ratio: 21 / 9; }
+  }
+</style>
+
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  const items = document.querySelectorAll('#about .reveal-up');
-  items.forEach((el, i) => {
+  document.querySelectorAll('#about .reveal-up, #about-portrait .reveal-up').forEach((el, i) => {
     gsap.to(el, {
       opacity: 1,
       y: 0,
       duration: 0.7,
       ease: 'power3.out',
-      delay: i * 0.15,
+      delay: (i % 6) * 0.12,
       scrollTrigger: {
         trigger: el,
         start: 'top 88%',
