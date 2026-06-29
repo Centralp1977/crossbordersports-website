@@ -6,7 +6,7 @@ const isCI = Boolean(process.env.GITHUB_ACTIONS);
 
 export default defineConfig({
   site: 'https://centralp1977.github.io',
-  base: isCI ? '/crossbordersports-website/demo3' : undefined,
+  base: isCI ? '/crossbordersports-website/demo3/' : undefined,
   server: {
     port: parseInt(process.env.PORT || '4323')
   },
