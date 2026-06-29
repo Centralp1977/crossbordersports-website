@@ -1,33 +1,68 @@
 ---
+// Logo slider — semi-transparent square frames on the crimson bar.
+// Replace the src/alt values with real partner logos when available.
+const logos = [
+  { label: 'PARTNER 01', src: '' },
+  { label: 'PARTNER 02', src: '' },
+  { label: 'PARTNER 03', src: '' },
+  { label: 'PARTNER 04', src: '' },
+  { label: 'PARTNER 05', src: '' },
+  { label: 'PARTNER 06', src: '' },
+  { label: 'PARTNER 07', src: '' },
+  { label: 'PARTNER 08', src: '' },
+];
 ---
-<div class="relative w-full bg-[var(--crimson)] h-[52px] overflow-hidden flex items-center">
-  <!-- Scrolling text -->
-  <div id="ticker-track" class="flex items-center whitespace-nowrap absolute left-0">
-    {[1, 2].map(() => (
-      <span class="gothic font-black text-white text-[14px] tracking-[0.08em] px-8">
-        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
-        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
-        カルチャー &nbsp;×&nbsp; インパクト &nbsp;×&nbsp; アピール &nbsp;×&nbsp; イメージ &nbsp;&nbsp;/&nbsp;&nbsp;
-      </span>
-    ))}
-  </div>
 
-  <!-- Right label -->
-  <div class="absolute right-14 z-10 flex items-center gap-2 pointer-events-none">
-    <span class="lab text-white opacity-90">CROSS = 4 STRENGTHS</span>
+<div class="logo-bar relative w-full overflow-hidden flex items-center"
+  style="background: var(--crimson); height: 88px;">
+
+  <!-- Left / right fade vignettes -->
+  <div class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none"
+    style="background: linear-gradient(to right, var(--crimson) 0%, transparent 100%);"></div>
+  <div class="absolute right-0 top-0 h-full w-20 z-10 pointer-events-none"
+    style="background: linear-gradient(to left, var(--crimson) 0%, transparent 100%);"></div>
+
+  <!-- Scrolling track (duplicated for seamless loop) -->
+  <div id="logo-track" class="flex items-center gap-5 absolute left-0 whitespace-nowrap">
+    {[...logos, ...logos].map((logo) => (
+      <div class="logo-card flex-shrink-0 flex items-center justify-center"
+        style="
+          width: 140px;
+          height: 60px;
+          border: 1px solid rgba(255,255,255,0.35);
+          background: rgba(255,255,255,0.1);
+          backdrop-filter: blur(4px);
+        ">
+        {logo.src
+          ? <img src={logo.src} alt={logo.label}
+              class="max-w-[110px] max-h-[44px] object-contain"
+              style="filter: brightness(0) invert(1); opacity: 0.85;" />
+          : <span class="gothic text-white font-bold tracking-widest"
+              style="font-size: 10px; opacity: 0.5;">{logo.label}</span>
+        }
+      </div>
+    ))}
   </div>
 </div>
 
 <script>
   import { gsap } from 'gsap';
 
-  const track = document.getElementById('ticker-track')!;
-  const width = track.scrollWidth / 2;
+  const track = document.getElementById('logo-track')!;
+  // Half the total width = one set of logos
+  const halfWidth = track.scrollWidth / 2;
 
   gsap.to(track, {
-    x: -width,
-    duration: 28,
+    x: -halfWidth,
+    duration: 32,
     ease: 'none',
     repeat: -1,
+    modifiers: {
+      x: gsap.utils.unitize((v: number) => parseFloat(v) % halfWidth),
+    },
   });
+
+  // Pause on hover
+  track.addEventListener('mouseenter', () => gsap.globalTimeline.pause());
+  track.addEventListener('mouseleave', () => gsap.globalTimeline.resume());
 </script>
