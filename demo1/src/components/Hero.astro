@@ -1,6 +1,5 @@
 ---
-// Hero visual — display the finished design image (hero-src2) edge-to-edge,
-// cropping intelligently across mobile / tablet / desktop.
+const base = import.meta.env.BASE_URL;
 ---
 <section class="hero-section relative w-full overflow-hidden" style="background:#04111c; height: 100vh; min-height: 560px;">
 
@@ -10,7 +9,7 @@
     role="img"
     aria-label="スポーツといえば日本を世界へ届ける — CROSSBORDER SPORTS"
     class="absolute inset-0 w-full h-full"
-    style="background-image: url('/images/hero-main.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+    style={`background-image: url('${base}images/hero-main.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;`}
   ></div>
 
   <!-- Scroll indicator -->
