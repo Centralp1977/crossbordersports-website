@@ -3,8 +3,9 @@ const base = import.meta.env.BASE_URL;
 ---
 <section class="hero-section relative w-full overflow-hidden" style="background:#04111c;">
 
-  <!-- Full hero visual — aspect-ratio matches the image (1200×675) so cover
-       never needs to scale beyond the image width, preventing horizontal clipping. -->
+  <!-- Hero visual — aspect-ratio matches the image (1200x675 = 16:9) so
+       background-size:cover never scales beyond the viewport width, preventing
+       the horizontal clipping that occurs when the hero height > image height. -->
   <div
     id="hero-main"
     role="img"
@@ -21,11 +22,8 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .hero-img {
-    /* Match image aspect ratio (1200×675 = 16:9) so cover never clips the sides */
     aspect-ratio: 1200 / 675;
-    /* Never taller than the viewport */
     max-height: 100vh;
-    /* Keep a minimum height on narrow screens */
     min-height: 400px;
   }
   @media (max-width: 640px) {
